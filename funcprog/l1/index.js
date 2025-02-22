@@ -1,16 +1,11 @@
-// Функция получения четных чисел.
 const getEvenNumbers = (arr) => arr.filter(num => num % 2 === 0);
 
-// Функция получения квадратов чисел
 const getSquares = (arr) => arr.map(num => num ** 2);
 
-// Фильтрация объектов по свойству
 const filterByProperty = (arr, prop) => arr.filter(obj => obj.hasOwnProperty(prop))
 
-// Вычисление суммы элементов массива
 const sumArray = (arr) => arr.reduce((sum, num) => sum + num, 0);
 
-// Функция высшего порядка
 const applyFunctionToArray = (fn, arr) => arr.map(fn);
 
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -28,7 +23,6 @@ console.log(
     applyFunctionToArray((num) => num * 2, numbers),
 );
 
-// Пример использования функции для суммы квадратов всех чётных чисел
 const sumOfEvenSquares = (arr) => {
     const evenNumbers = getEvenNumbers(arr);
     const squares = getSquares(evenNumbers);
@@ -36,8 +30,6 @@ const sumOfEvenSquares = (arr) => {
 };
 console.log("Сумма квадратов чётных чисел:", sumOfEvenSquares(numbers));
 
-// Пример использования функции для нахождения среднего арифметического всех чисел, больших
-// заданного значения
 const averageGreaterThanValue = (arr, prop, minValue) => {
     const filteredValues = arr
         .filter((obj) => obj[prop] > minValue)
