@@ -27,7 +27,7 @@ const racers: Racers[] = [
     { name: "Verstappen", titles: 4 },
     { name: "Hamilton", titles: 7 },
 ];
-console.log(sortByProperty(racers, "titles"));
+console.log(sortByProperty(racers, "name"));
 
 function withLogging<T extends (...args: any[]) => any>(fn: T): T {
     return function (...args: Parameters<T>): ReturnType<T> {

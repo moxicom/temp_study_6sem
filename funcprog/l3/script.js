@@ -31,7 +31,7 @@ var racers = [
     { name: "Verstappen", titles: 4 },
     { name: "Hamilton", titles: 7 },
 ];
-console.log(sortByProperty(racers, "titles"));
+console.log(sortByProperty(racers, "name"));
 function withLogging(fn) {
     return function () {
         var args = [];
@@ -46,4 +46,4 @@ function withLogging(fn) {
 }
 var multiply = function (x, y) { return x * y; };
 var loggedMultiply = withLogging(multiply);
-console.log(loggedMultiply(133, 2)); // Логирует вызов и результат: 42
+console.log(loggedMultiply(133, 2));

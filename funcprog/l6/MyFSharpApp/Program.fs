@@ -120,6 +120,9 @@ let rec calculator () =
         let input = Console.ReadLine()
         match parseFloat input with
         | Some x ->
+        if x < 0.0 then
+            printfn "Корень отрицательного числа невозможен"
+        else
             let result = sqrt x
             printfn "Результат: %f" result
         | None -> printfn "Некорректный ввод числа."
