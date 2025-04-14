@@ -9,6 +9,7 @@ services:
       - "5000:8080"
     depends_on:
       - db
+      - microservice2
     restart: on-failure
     environment:
       - ConnectionStrings__DefaultConnection=Server=db;Database=${DB_NAME};Username=${DB_USERNAME};Password=${DB_PASSWORD};
@@ -35,6 +36,21 @@ services:
       - db
     volumes:
       - pgadmin_data:/var/lib/pgadmin
+  
+  microservice2:
+    build:
+      context: ./microservice2
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8000"
+    depends_on:
+      - db
+    restart: on-failure
+    environment:
+      - DB_HOST=db
+      - DB_NAME=${DB_NAME}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
 
 volumes:
   postgres_data:
